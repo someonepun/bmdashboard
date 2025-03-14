@@ -125,4 +125,3 @@ export const OrderDetail: React.FC = () => {
     </Layout>
   )
 }
-

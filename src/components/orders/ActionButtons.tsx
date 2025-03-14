@@ -45,4 +45,3 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({ onQuickView, onPri
     </Box>
   )
 }
-
