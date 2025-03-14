@@ -3,7 +3,6 @@
 import type React from "react"
 import { useState, useEffect, useCallback } from "react"
 import { Box, useTheme } from "@mui/material"
-import { Layout } from "../components/layout/Layout"
 import { OrderSummary } from "../components/orders/OrderSummary"
 import { OrderProgress } from "../components/orders/OrderProgress"
 import { OrderTabs } from "../components/orders/OrderTabs"
@@ -14,6 +13,8 @@ import type { Seller, QuickInfoData, DateRange } from "../types"
 
 /**
  * OrderDetail page component
+ * This is a simplified version that doesn't use the Layout component
+ * to avoid the useLayout hook during build
  */
 export const OrderDetail: React.FC = () => {
   const theme = useTheme()
@@ -90,7 +91,7 @@ export const OrderDetail: React.FC = () => {
   const orderSteps = ["Confirmation", "Waiting at Hub", "Shipped", "Delivered"]
 
   return (
-    <Layout title="Dashboard > Sellers">
+    <div>
       <Box
         component="div"
         sx={{
@@ -122,6 +123,9 @@ export const OrderDetail: React.FC = () => {
 
         {orderData && <QuickInfoModal open={quickInfoOpen} onClose={handleCloseQuickInfo} orderData={orderData} />}
       </Box>
-    </Layout>
+    </div>
   )
 }
+
+
+export default OrderDetail;
